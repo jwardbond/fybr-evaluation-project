@@ -11,7 +11,7 @@ class Sidebar extends Component {
   
   //on click sub item
 
-  
+
   render() {
     /*
       Data should be an array of items. Each item also has items that represent 
@@ -37,11 +37,51 @@ class Sidebar extends Component {
       ]
     */
 
-    //3 divs with onclick imported from state
-    //onclick, change state to display tiles
-    //
-
-    const items = [];
+    //Filled with dummy data
+    const items =    [
+      {
+        id: 1,
+        name: "Cypress Provincial Park",
+        items: [
+          {
+            id: 1,
+            name: 'East'
+          },
+          {
+            id: 2,
+            name: 'West'
+          }
+        ]
+      },
+      {
+        id: 2,
+        name: "Gambier Island",
+        items: [
+          {
+            id: 3,
+            name: 'Lake'
+          },
+        ]
+      },
+      {
+        id: 3,
+        name: "Anvil Island",
+        items: [
+          {
+            id: 4,
+            name: 'First Anvil'
+          },
+          {
+            id: 5,
+            name: 'Second Anvil'
+          },
+          {
+            id: 6,
+            name: 'Tip'
+          }
+        ]
+      }
+    ];
 
     return <List items={ items } onClickSubitem={ this.props.centerMapOnSite } />
   }
