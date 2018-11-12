@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 
-import SubItemList from "./SubList";
+import SubList from "./SubList";
 
-/*
-Accordion logic happens here
-Choose to display or not display subitems
-*/
+
 class ListItem extends Component {
   //to be managed by redux later
   state = {
     expanded: false
   };
 
-  //proc the state change
+  /*
+  Toggles the expanded state
+  Should propogate up to container to be managed by redux [NOT IMPLEMENTED]
+  */
   updateView(e) {
     this.state.expanded
       ? (this.state.expanded = false)
@@ -22,17 +22,19 @@ class ListItem extends Component {
     this.setState(this.state);
   }
 
-  //Render the item, and if the state is expanded, then render the subitmes as well
+  /*
+  Renders the [top level] item
+  If the state is expanded: renders the sub-list level items as well
+  */ 
   render() {
     //grab from props
     let { item } = this.props;
-    let { expanded } = this.state;
+    let {expanded} = this.state;
 
     return (
       <div>
         <div onClick={this.updateView.bind(this)}>{item.name}</div>
-        {/* {expanded ? <SubItemList subItems={item.items} /> : null} */}
-        {expanded? console.log('expanded') : console.log('not expanded')}
+        {expanded ? <SubList subItems={item.items} /> : null}
       </div>
     );
   }

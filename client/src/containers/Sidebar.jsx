@@ -9,9 +9,6 @@ import List from '../components/List';
 
 class Sidebar extends Component {
   
-  //on click sub item
-
-
   render() {
     /*
       Data should be an array of items. Each item also has items that represent 
