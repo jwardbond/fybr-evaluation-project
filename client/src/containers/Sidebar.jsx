@@ -38,7 +38,7 @@ class Sidebar extends Component {
     */
 
     //Filled with dummy data
-    const items =    [
+    const items = [
       {
         id: 1,
         name: "Cypress Provincial Park",
