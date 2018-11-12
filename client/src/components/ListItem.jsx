@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import SubList from "./SubList";
 
-
 class ListItem extends Component {
   //to be managed by redux later
   state = {
