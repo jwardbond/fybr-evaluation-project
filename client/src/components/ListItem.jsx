@@ -1,40 +1,41 @@
 import React, { Component } from "react";
-import SubItem from "./SubItem";
-import List from "./List";
+
+import SubItemList from "./SubList";
 
 /*
 Accordion logic happens here
 Choose to display or not display subitems
 */
-class Item extends Component {
-  
+class ListItem extends Component {
   //to be managed by redux later
   state = {
     expanded: false
   };
 
+  //proc the state change
   updateView(e) {
     this.state.expanded
       ? (this.state.expanded = false)
       : (this.state.expanded = true);
 
-      console.log(this.state);
+    console.log(this.state);
+    this.setState(this.state);
   }
 
+  //Render the item, and if the state is expanded, then render the subitmes as well
   render() {
+    //grab from props
     let { item } = this.props;
     let { expanded } = this.state;
-    let subItemList = item.items.map(subItemElement => {
-      return <SubItem key={subItemElement.id} />;
-    });
 
     return (
       <div>
         <div onClick={this.updateView.bind(this)}>{item.name}</div>
-        {subItemList}
+        {/* {expanded ? <SubItemList subItems={item.items} /> : null} */}
+        {expanded? console.log('expanded') : console.log('not expanded')}
       </div>
     );
   }
 }
 
-export default Item;
+export default ListItem;
