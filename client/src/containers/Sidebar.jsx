@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { getProjects, getSites } from '../model';
+import { getProjects, getSites } from "../model";
 
-import { centerMapOnSite } from '../model/map';
+import { centerMapOnSite } from "../model/map";
 
-import List from '../components/List';
+import List from "../components/List";
 
 class Sidebar extends Component {
-  
   render() {
     /*
       Data should be an array of items. Each item also has items that represent 
@@ -42,11 +41,11 @@ class Sidebar extends Component {
         items: [
           {
             id: 1,
-            name: 'East'
+            name: "East"
           },
           {
             id: 2,
-            name: 'West'
+            name: "West"
           }
         ]
       },
@@ -56,8 +55,8 @@ class Sidebar extends Component {
         items: [
           {
             id: 3,
-            name: 'Lake'
-          },
+            name: "Lake"
+          }
         ]
       },
       {
@@ -66,21 +65,21 @@ class Sidebar extends Component {
         items: [
           {
             id: 4,
-            name: 'First Anvil'
+            name: "First Anvil"
           },
           {
             id: 5,
-            name: 'Second Anvil'
+            name: "Second Anvil"
           },
           {
             id: 6,
-            name: 'Tip'
+            name: "Tip"
           }
         ]
       }
     ];
 
-    return <List items={ items } onClickSubitem={ this.props.centerMapOnSite } />
+    return <List items={items} onClickSubitem={this.props.centerMapOnSite} />;
   }
 }
 
@@ -95,4 +94,7 @@ const mapDispatchToProps = {
   centerMapOnSite
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Sidebar);

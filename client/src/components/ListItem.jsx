@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import SubList from "./SubList";
+import styles from "./ListItem.scss"
 
 class ListItem extends Component {
   //to be managed by redux later
@@ -32,7 +33,7 @@ class ListItem extends Component {
 
     return (
       <div>
-        <div onClick={this.updateView.bind(this)}>{item.name}</div>
+        <div className = {styles.listItem} onClick={this.updateView.bind(this)}>{item.name}▼</div>
         {expanded ? <SubList subItems={item.items} /> : null}
       </div>
     );

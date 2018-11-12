@@ -1,0 +1,15 @@
+$base-color: whitesmoke;
+
+
+div {
+    cursor: pointer;
+}
+.listItem {
+    // background-color: linear-gradient(darken($base-color, 10), $base-color, darken($base-color, 10));
+    background: linear-gradient(darken($base-color, 20), $base-color, darken($base-color, 20));
+    padding: 0.5em;
+    margin-bottom:5px; 
+}
+.listItem:hover {
+    background-color: darken($base-color, 15);
+}
