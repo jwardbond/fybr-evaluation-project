@@ -46,6 +46,13 @@ const initial = {
   ids: []
 };
 
+/*
+Object mapping reducer calls to the correct reducer func depending on action.type
+Calls to update projects state can either change the state to 
+  - requested
+  - completed
+  - error
+*/
 const reducer = {
   [FETCH_PROJECTS_REQUESTED](state, action) {
     return {
@@ -70,4 +77,12 @@ const reducer = {
   }
 }
 
+/*
+Exports a function that takes two arguments:
+  - The state (optional, default to 'initial') defined above
+  - An action to change the state
+The function checks whether or not the action has a type contained in the reducers defined above
+  TRUE: returns the result of applying the appropriate reducer function (the new state)
+  FALSE: returns the same state as before
+*/
 export default (state = initial, action) => reducer.hasOwnProperty(action.type) ? reducer[action.type](state, action) : state;

@@ -2,6 +2,10 @@ import React from 'react';
 
 import styles from './Layout.scss';
 
+//
+//Stateless react function
+//Constructs virtual DOM layout from props
+//
 export default function Layout(props) {
   return (
     <div className={ styles.container }>

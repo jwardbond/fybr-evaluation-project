@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { FETCH_PROJECTS_COMPLETED, fetchProjects } from '../model/projects';
-import { FETCH_SITES_COMPLETED, fetchSites } from '../model/sites';
+import { FETCH_PROJECTS_COMPLETED, fetchProjects } from "../model/projects";
+import { FETCH_SITES_COMPLETED, fetchSites } from "../model/sites";
 
-import Layout from '../layouts/Layout';
-import Sidebar from './Sidebar';
-import InteractiveMap from './InteractiveMap';
-import Chart from './Chart';
-import Loading from '../components/Loading';
+import Layout from "../layouts/Layout";
+import Sidebar from "./Sidebar";
+import InteractiveMap from "./InteractiveMap";
+import Chart from "./Chart";
+import Loading from "../components/Loading";
+
+
 
 class ProjectsIndex extends Component {
   componentDidMount() {
@@ -17,31 +19,37 @@ class ProjectsIndex extends Component {
   }
 
   render() {
-    if(this.props.loaded === false) {
-      return <Loading />
+    if (this.props.loaded === false) {
+      return <Loading />;
     }
 
     return (
       <Layout
-        sidebar={ <Sidebar /> }
-        top={ <InteractiveMap /> }
-        bottom={ <Chart />}
+        sidebar={<Sidebar />}
+        top={<InteractiveMap />}
+        bottom={<Chart />}
       />
     );
   }
 }
 
+//Boolean indicating the load state of the component
 function mapStateToProps(state) {
   return {
-    loaded: state.projects.status === FETCH_PROJECTS_COMPLETED &&
-            state.sites.status === FETCH_SITES_COMPLETED &&
-            state.sites.selected !== null
+    loaded:
+      state.projects.status === FETCH_PROJECTS_COMPLETED &&
+      state.sites.status === FETCH_SITES_COMPLETED &&
+      state.sites.selected !== null
   };
 }
 
+//Gives the component two props, one is a
 const mapDispatchToProps = {
   fetchProjects,
   fetchSites
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectsIndex);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProjectsIndex);

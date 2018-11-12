@@ -8,9 +8,14 @@ import { centerMapOnSite } from '../model/map';
 import List from '../components/List';
 
 class Sidebar extends Component {
+  
+  //on click sub item
+
+  
   render() {
     /*
-      Data should be an array of items. Each item also has items that represent the sub menu. Use the data from the redux store being passed in as props.
+      Data should be an array of items. Each item also has items that represent 
+      the sub menu. Use the data from the redux store being passed in as props.
 
       The structure of the data is:
 
@@ -31,6 +36,10 @@ class Sidebar extends Component {
         }
       ]
     */
+
+    //3 divs with onclick imported from state
+    //onclick, change state to display tiles
+    //
 
     const items = [];
 
