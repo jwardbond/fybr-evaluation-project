@@ -10,9 +10,8 @@ import List from "../components/List";
 class Sidebar extends Component {
 
   render() {
-    console.log(this.props.projects[0].sites);
+    console.log(this.props.projects);
     console.log(this.props.sites);
-    let clickHandle = this.clickHandle.bind(this);
 
     //Filled with dummy data
     const items = [
