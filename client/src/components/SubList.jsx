@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import SubListItem from "./SubListItem";
-import styles from "./SubList.scss";
 
 /*
 Loads a sublist
