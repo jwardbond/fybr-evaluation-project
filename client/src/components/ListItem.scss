@@ -1,15 +1,22 @@
-$base-color: whitesmoke;
-
+$container-color: whitesmoke;
 
 div {
-    cursor: pointer;
+  cursor: pointer;
 }
-.listItem {
-    // background-color: linear-gradient(darken($base-color, 10), $base-color, darken($base-color, 10));
-    background: linear-gradient(darken($base-color, 20), $base-color, darken($base-color, 20));
-    padding: 0.5em;
-    margin-bottom:5px; 
+
+.container {
+  padding: 0.3em;
+  margin-bottom: 5px;
+  //----
+  background-color: $container-color;
 }
-.listItem:hover {
-    background-color: darken($base-color, 15);
+
+.container:hover {
+  background-color: darken($container-color, 25);
+}
+
+.arrow {
+  float: right;
+  //----
+  color: darken($container-color, 50);
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import SubList from "./SubList";
-import styles from "./ListItem.scss"
+import styles from "./ListItem.scss";
 
 class ListItem extends Component {
   //to be managed by redux later
@@ -25,15 +25,19 @@ class ListItem extends Component {
   /*
   Renders the [top level] item
   If the state is expanded: renders the sub-list level items as well
-  */ 
+  */
+
   render() {
     //grab from props
     let { item } = this.props;
-    let {expanded} = this.state;
+    let { expanded } = this.state;
 
     return (
       <div>
-        <div className = {styles.listItem} onClick={this.updateView.bind(this)}>{item.name}▼</div>
+        <div className={styles.container} onClick={this.updateView.bind(this)}>
+          {item.name}
+          <div className={styles.arrow}>{expanded? '▲' : '▼'}</div>
+        </div>
         {expanded ? <SubList subItems={item.items} /> : null}
       </div>
     );
