@@ -6,16 +6,25 @@ import styles from "./SubListItem.scss";
 Displays a single item
 */
 class SubItem extends Component {
+ 
   /*
-  On click, centers the map to a new location
-  Should propogate back up to container for state change
+  Logic to handle click events
+  In this case: Propogates up the chain to the container component by 
+  calling the onClickSubItem method of the PROP
   */
-  mapChange(e) {}
+  handleClick(id) {
+    this.props.onClickSubItem(id);
+  }
 
+  /*
+  Renders the (sub level) item
+  */ 
   render() {
     let { item } = this.props;
+    let handleClick = this.handleClick.bind(this, item.id);
+
     return (
-      <div className={styles.subContainer} onClick={this.mapChange.bind(this)}>
+      <div className={styles.subContainer} onClick={handleClick}>
         {item.name}
       </div>
     );
