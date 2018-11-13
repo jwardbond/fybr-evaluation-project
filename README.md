@@ -4,6 +4,9 @@ This project is in development according to the challenge outlined [here](https:
 
 
 # To Install
+
+#### Uses NodeJS v10.13.0
+
 1. `git clone` the repo
 2. run `npm install` in your cloned repo to get dependencies
 3. create a `.env` file with your mapbox.gl key following the format in `.env.example`
@@ -14,7 +17,7 @@ This project is in development according to the challenge outlined [here](https:
 >the webpack-dev-server will proxy requests starting with `/api` to port 3001
 
 
-# Changed in 1.1.0
+# Changed In 1.1.0
 
 ### Accordion menus
 
@@ -25,7 +28,7 @@ This project is in development according to the challenge outlined [here](https:
 - `ListItem` contains `onClick` logic to toggle the expanded state (toggle whether or not `SubList` is rendered)
 - `SubListItem` has an `onClick` event that propagates up the chain to the `Sidebar` container, where it interacts with the redux store to call `centerMapOnSite`, which repositions the mapbox.gl map
 
-# To be changed
+# To Be Changed
 
 ### Accordion menus
 
