@@ -11,35 +11,29 @@ class Sidebar extends Component {
   - The projects prop has projects[project].sites[site] = id
   - The sites prop has sites[site]= {id:, name:, etc}
   - This function combines those two props to make an item array with
-    itemArr[project].sites[site] = {id:, name:}
+    itemArr[project].items[site] = {id:, name:}, which was the (fybr) specified
+    format
   */
-  createItemArr() {
-    const siteArr = this.props.sites;
-    const projectsArr = this.props.projects;
-    let itemArr;
+  createItemsArr(projectsArr, sitesArr) {
+    let itemsArr = [];
 
-    //for each 'project' in the 'projectsArr' array
-    //return updated project
-    console.log(projectsArr); 
-    itemArr = projectsArr.map(project => {
-      //for each 'site' in 'project.sites' array
-      //return updated sites
-      let updatedSites;
-      updatedSites = project.sites.map(site => {
-        //find the site with the id === projects[project].sites[site]
-        let correspondingSite = siteArr.find(siteInSiteArr => {
-          return siteInSiteArr.id === site;
-        });
-        //return a new, hybrid, site object
-        return {
-          id: correspondingSite.id,
-          name: correspondingSite.name
-        };
+    //for each project
+    let i;
+    for (i = 0; i < projectsArr.length; i++) {
+      //construct top level items
+      itemsArr.push({
+        id: projectsArr[i].id,
+        name: projectsArr[i].name,
+        //map correct subitems from 'sites'
+        items: projectsArr[i].sites.map(site => {
+          return {
+            id: sitesArr[site - 1].id,
+            name: sitesArr[site - 1].name
+          };
+        })
       });
-      project.sites = updatedSites;
-      return project;
-    });
-    return itemArr;
+    }
+    return itemsArr;
   }
 
   render() {
@@ -48,54 +42,8 @@ class Sidebar extends Component {
     const centerMapOnSite = this.props.centerMapOnSite.bind(this);
     const createItemArr = this.createItemArr; //don't need to bind
 
-    //to connect project and site data
-    const itemsArr = this.createItemArr();
-
-    //Filled with dummy data
-    const items = [
-      {
-        id: 1,
-        name: "Cypress Provincial Park",
-        items: [
-          {
-            id: 1,
-            name: "East"
-          },
-          {
-            id: 2,
-            name: "West"
-          }
-        ]
-      },
-      {
-        id: 2,
-        name: "Gambier Island",
-        items: [
-          {
-            id: 3,
-            name: "Lake"
-          }
-        ]
-      },
-      {
-        id: 3,
-        name: "Anvil Island",
-        items: [
-          {
-            id: 4,
-            name: "First Anvil"
-          },
-          {
-            id: 5,
-            name: "Second Anvil"
-          },
-          {
-            id: 6,
-            name: "Tip"
-          }
-        ]
-      }
-    ];
+    //to connect project and site data into the predefined format
+    const items = this.createItemsArr(projects, sites);
 
     return <List items={items} onClickSubItem={centerMapOnSite} />;
   }
@@ -118,11 +66,12 @@ export default connect(
 )(Sidebar);
 
 /*
-      Data should be an array of items. Each item also has items that represent 
+      ***DATA FORMAT SPECIFICATION***
+      Data ('items') should be an array of items. Each item also has items that represent 
       the sub menu. Use the data from the redux store being passed in as props.
 
       The structure of the data is:
-
+s
       [
         {
           id: 1,
