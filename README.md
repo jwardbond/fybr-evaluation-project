@@ -5,7 +5,7 @@ This project is in development according to the challenge outlined [here](https:
 
 # To Install
 
-#### Uses NodeJS v10.13.0
+#### Tested with NodeJS v10.13.0
 
 1. `git clone` the repo
 2. run `npm install` in your cloned repo to get dependencies
