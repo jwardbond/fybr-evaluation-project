@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import SubList from "./SubList";
+
 import styles from "./ListItem.scss";
 
 class ListItem extends Component {
@@ -21,17 +22,19 @@ class ListItem extends Component {
   }
 
   /*
-  Logic for handling what happens when a sub-item is clicked
-  In this case it passes it up the chain to the container (Sidebar)
-  by calling the onClickSubItem function of the PROP
+  Logic for handling what happens when a sub-item is clicked.
+  In this case it passes it up the chain to the container (Sidebar).
+  by calling the onClickSubItem function of the PROP.
+  It might have been easier to just pass the onClickSubItem straight through, but I 
+  wanted to make sure I could define the logic at every level so I could re-use the comps.
   */
   onClickSubItem(id) {
     this.props.onClickSubItem(id);
   }
 
   /*
-  Renders the (top level) item
-  If the state is expanded: renders the sub-list level items as well
+  Renders the (top level) item.
+  If the state is expanded: renders the sub-list level items as well.
   */
   render() {
     let { item } = this.props;

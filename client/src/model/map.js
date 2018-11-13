@@ -1,8 +1,8 @@
-import * as turf from '@turf/turf';
-import { sitesSetCurrent } from './sites';
+import * as turf from "@turf/turf";
+import { sitesSetCurrent } from "./sites";
 
-export const MAP_SET_CENTER = 'MAP_SET_CENTER';
-export const MAP_SET_ZOOM = 'MAP_SET_ZOOM';
+export const MAP_SET_CENTER = "MAP_SET_CENTER";
+export const MAP_SET_ZOOM = "MAP_SET_ZOOM";
 
 export function mapSetCenter(center) {
   return {
@@ -61,4 +61,7 @@ The function checks whether or not the action has a type contained in the reduce
   TRUE: returns the result of applying the appropriate reducer function (the new state)
   FALSE: returns the same state as before
 */
-export default (state = initial, action) => reducer.hasOwnProperty(action.type) ? reducer[action.type](state, action) : state;
+export default (state = initial, action) =>
+  reducer.hasOwnProperty(action.type)
+    ? reducer[action.type](state, action)
+    : state;
