@@ -1,4 +1,4 @@
-$container-color: whitesmoke;
+$base-color: whitesmoke;
 
 div {
   cursor: pointer;
@@ -6,17 +6,19 @@ div {
 
 .container {
   padding: 0.3em;
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
   //----
-  background-color: $container-color;
+  background-color: $base-color;
+  font-weight: bolder;
+  font-size: 1em;
 }
 
 .container:hover {
-  background-color: darken($container-color, 25);
+  background-color: darken($base-color, 25);
 }
 
 .arrow {
   float: right;
   //----
-  color: darken($container-color, 50);
+  color: darken($base-color, 50);
 }

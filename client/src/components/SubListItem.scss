@@ -1,0 +1,11 @@
+$base-color: whitesmoke;
+
+.subContainer {
+  padding: 0.3em 0.3em 0.3em 1em;
+  //---
+  background-color: $base-color;
+}
+
+.subContainer:hover {
+    background-color: darken($base-color, 25);
+}

@@ -36,7 +36,7 @@ class ListItem extends Component {
       <div>
         <div className={styles.container} onClick={this.updateView.bind(this)}>
           {item.name}
-          <div className={styles.arrow}>{expanded? '▲' : '▼'}</div>
+          <div className={styles.arrow}>{expanded ? "▲" : "▼"}</div>
         </div>
         {expanded ? <SubList subItems={item.items} /> : null}
       </div>
